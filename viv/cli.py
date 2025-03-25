@@ -28,7 +28,6 @@ def config_from_file(path="viv.toml") -> Config:
   doc = load_toml(path)
   cfg_dict = {}
   for f in fields(Config):
-    # if the field name is present in the top-level doc, use it
     if f.name in doc:
       cfg_dict[f.name] = doc[f.name]
   return Config(**cfg_dict)
